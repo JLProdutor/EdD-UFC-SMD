@@ -1,6 +1,7 @@
 import re
 import unicodedata
 
+
 # Exercício 1: Implemente a soma de todos números 0 + 1 + ... + n de modo recursivo.
 def fatorial(n):
     # Caso base: se n for 0 ou 1, o resultado é 1

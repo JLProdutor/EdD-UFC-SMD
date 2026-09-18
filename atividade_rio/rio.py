@@ -25,9 +25,10 @@ As Algas crescem uma unidade a cada rodada.
 """
 
 # Números randomicos
-from random import randint
 # Classes abstratas
 from abc import ABC, abstractmethod
+from random import randint
+
 
 # Rio
 class Rio:
@@ -107,13 +108,12 @@ class Rio:
                 f"{obj_origem} moveu-se de {origem} para {destino}."
             )
         elif isinstance(obj_destino, Toca):
-            if isinstance(obj_origem, Peixe):
-                if not obj_destino.ocupada:
-                    obj_destino.entrar(obj_origem)
-                    self.__rio[origem] = Agua()
-                    self.__registrar(
-                        f"{obj_origem} entrou na toca na posição {destino}."
-                    )
+            if isinstance(obj_origem, Peixe) and not obj_destino.ocupada:
+                obj_destino.entrar(obj_origem)
+                self.__rio[origem] = Agua()
+                self.__registrar(
+                    f"{obj_origem} entrou na toca na posição {destino}."
+                )
         elif isinstance(obj_destino, Alga):
             if isinstance(obj_origem, Peixe):
                 tamanho = obj_destino.tamanho
